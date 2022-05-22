@@ -19,19 +19,11 @@ public class Question3 {
             BufferedReader br=new BufferedReader(new FileReader(path));
             List<String> matchIds=new ArrayList<>();
             while((line = br.readLine()) !=null) {
-
                 String[] values=line.split(",");
-
-                if(values[1]=="2016") {
-
+                if(values[1].equals("2016")) {
                     matchIds.add(values[0]);
-
                 }
-
-
-
             }
-
             System.out.println(matchIds);
 
         } catch (FileNotFoundException e) {
