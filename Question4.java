@@ -10,7 +10,6 @@ import java.util.List;
 
 public class Question4 {
 
-
     public static void main(String[] args) {
 
         String path="/home/sudheer/Downloads/archive/matches.csv";
@@ -26,24 +25,29 @@ public class Question4 {
                     matchIds.add(values[0]);
                 }
             }
-            System.out.println(matchIds);
+            //System.out.println(matchIds);
 
             BufferedReader br1=new BufferedReader(new FileReader(deliveriesFilePath));
 
-            HashMap<String,Integer> teamExtraRuns=new HashMap();
+            HashMap<String,Integer> bowlerRuns=new HashMap();
+            HashMap<String,Integer> bowlerBalls=new HashMap();
             while((line = br1.readLine()) !=null) {
 
                 String[] values=line.split(",");
-                if (matchIds.contains(values[0])){
-                    if(teamExtraRuns.containsKey(values[3])) {
-                        int count=teamExtraRuns.get(values[3]);
-                        teamExtraRuns.put(values[3],count+Integer.valueOf(values[16]));
+                if (matchIds.contains(values[0])&&values[9].equals("0")){
+                    //adding balls to bowler if the ball is not a wide and no  ball
+                    if(Integer.valueOf(values[10])==0 && Integer.valueOf(values[13])==0){
+                        if(bowlerBalls.containsKey(values[8])){
+                            bowlerBalls.put(values[8],bowlerBalls.get(values[8]+1));
+                        }
+                        else{
+                            bowlerBalls.put(values[8],1);
+                        }
 
                     }
+                    System.out.println(bowlerBalls);
 
-                    else {
-                        teamExtraRuns.put(values[3], Integer.valueOf(values[16]));
-                    }
+
 
                 }
 
