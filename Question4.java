@@ -38,14 +38,15 @@ public class Question4 {
                     //adding balls to bowler if the ball is not a wide and no  ball
                     if(Integer.valueOf(values[10])==0 && Integer.valueOf(values[13])==0){
                         if(bowlerBalls.containsKey(values[8])){
-                            bowlerBalls.put(values[8],bowlerBalls.get(values[8]+1));
+                            bowlerBalls.put(values[8],bowlerBalls.get(values[8])+1);
                         }
                         else{
                             bowlerBalls.put(values[8],1);
                         }
 
+
                     }
-                    System.out.println(bowlerBalls);
+
 
 
 
@@ -54,6 +55,7 @@ public class Question4 {
 
 
             }
+            System.out.println(bowlerBalls);
             //System.out.println("For the year 2016 the extra runs conceded per team");
             //System.out.println(teamExtraRuns);
         } catch (FileNotFoundException e) {
