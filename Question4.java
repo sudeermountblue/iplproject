@@ -54,7 +54,20 @@ public class Question4 {
                     }
                 }
             }
+            //adding bowler name and economy as key value pair in bowlerEconomies Hashmap
+            HashMap<String,Float> bowlerEconomies=new HashMap();
+
+            List<String> bowlers=new ArrayList<>(bowlerBalls.keySet());
+
+            for(int i=0;i<bowlerBalls.size();i++){
+                String bowler = bowlers.get(i);
+                float overs = bowlerBalls.get(bowler)/6;
+                float economy = bowlerRuns.get(bowler)/overs;
+                bowlerEconomies.put(bowler, economy);
+            }
+            System.out.println(bowlerEconomies);
             System.out.println(bowlerBalls);
+            System.out.println(bowlerRuns);
             //System.out.println("For the year 2016 the extra runs conceded per team");
             //System.out.println(teamExtraRuns);
         } catch (FileNotFoundException e) {
