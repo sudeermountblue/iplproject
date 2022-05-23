@@ -43,17 +43,16 @@ public class Question4 {
                         else{
                             bowlerBalls.put(values[8],1);
                         }
-
-
                     }
-
-
-
-
+                    //adding bowler runs by removing bye_runs and leg_bye_runs"
+                    int runs=Integer.valueOf(values[17])-Integer.valueOf(values[11])-Integer.valueOf(values[12]);
+                    if(bowlerRuns.containsKey(values[8])){
+                        bowlerRuns.put(values[8],bowlerRuns.get(values[8])+runs);
+                    }
+                    else{
+                        bowlerRuns.put(values[8],runs);
+                    }
                 }
-
-
-
             }
             System.out.println(bowlerBalls);
             //System.out.println("For the year 2016 the extra runs conceded per team");
